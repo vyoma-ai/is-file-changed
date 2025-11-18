@@ -1,0 +1,22 @@
+name: Is File Changed in commit
+description: Check if a file is changed in the commits and return a response
+author: Vyoma
+
+# Define your inputs here.
+inputs:
+  pattern:
+    required: true
+    description: JavaScript regular expression matching filenames (including path) of files which must be checked
+  token:
+    required: true
+    description: Token to access the repository
+    default: ${{ github.token }}
+
+# Define your outputs here.
+outputs:
+  changed:
+    description: A true/false output whether the check passes or not
+
+runs:
+  using: node20
+  main: dist/index.js
